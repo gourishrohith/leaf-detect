@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "charan",
+      "email": "raaju0014339@gmail.com",
+      "passwordHash": "$2b$10$yB9elbwV1TN.Ix.Bnh17het1CRz.y8h1zASWA4hSZroPItjN7FHPK",
+      "purpose": "home_crop_grower",
+      "wantsChemicals": true
+    }
+  ]
+}

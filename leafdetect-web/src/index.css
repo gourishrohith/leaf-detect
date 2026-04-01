@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* App theme tokens (light) */
+:root {
+  --ld-bg: 248 250 252; /* slate-50 */
+  --ld-panel: 255 255 255;
+  --ld-text: 15 23 42; /* slate-900 */
+  --ld-muted: 71 85 105; /* slate-600 */
+  --ld-border: 226 232 240; /* slate-200 */
+
+  --ld-green: 34 197 94; /* green-500 */
+  --ld-green-2: 16 185 129; /* emerald-500 */
+  --ld-green-3: 5 150 105; /* emerald-600 */
+  --ld-accent: var(--ld-green-2);
+  --ld-accent-2: var(--ld-green);
+
+  --ld-shadow: 0 20px 60px rgba(2, 6, 23, 0.10);
+  --ld-shadow-soft: 0 10px 30px rgba(2, 6, 23, 0.08);
+}
+
+/* Dark mode via attribute: <html data-theme="dark"> */
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+html[data-theme="dark"] {
+  --ld-bg: 3 7 18; /* slate-950-ish */
+  --ld-panel: 15 23 42; /* slate-900 */
+  --ld-text: 226 232 240; /* slate-200 */
+  --ld-muted: 148 163 184; /* slate-400 */
+  --ld-border: 51 65 85; /* slate-700 */
+
+  --ld-shadow: 0 25px 80px rgba(0, 0, 0, 0.55);
+  --ld-shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Smooth default transitions (kept subtle for “easy on eyes”) */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow, transform;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ld-bg {
+  background: rgb(var(--ld-bg));
+  color: rgb(var(--ld-text));
+}
+
+.ld-pop-card {
+  position: relative;
+}
+
+.ld-pop-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(16, 185, 129, 0.16);
+}
+
+html[data-theme="dark"] .ld-pop-card:hover {
+  box-shadow: 0 18px 42px rgba(16, 185, 129, 0.28);
+}
+
+.ld-accent-panel {
+  position: relative;
+  border: 1px solid rgb(var(--ld-border));
+  overflow: hidden;
+}
+
+.ld-accent-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.75),
+    rgba(34, 197, 94, 0.45) 42%,
+    rgba(5, 150, 105, 0.78)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.ld-accent-panel:hover::before {
+  opacity: 0.85;
+}
